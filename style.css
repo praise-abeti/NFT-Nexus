@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+/* ------------------------------------------
+LAYOUT STYLE RULE
+------------------------------------------ */
 *,
 ::before,
 ::after{
@@ -6,9 +12,632 @@
     box-sizing: border-box;
 }
 
-body{
+/* ------------------------------------------
+ROOT COLOR STYLES
+------------------------------------------ */
+:root{
+    --blue-clr: hsl(195, 100%, 50%);
+    --black-clr: hsl(225, 57%, 5%);
+    --white-clr: hsl(0, 0%, 100%);
+    --ash-clr: hsla(0, 0%, 100%, 0.6);
+}
+
+/* ------------------------------------------
+UTILITY STYLES
+------------------------------------------ */
+/* RESPONSIVENESS */
+.flex{
+    display: flex;
+}
+.grid{
+    display: grid;
+}
+.tac{
+    text-align: center;
+}
+.jcc{
+    justify-content: center;
+}
+.jcsb{
+    justify-content: space-between;
+}
+.aic{
+    align-items: center;
+}
+
+/* WIDTH PADDING */
+.paddWidth{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+/* IPADS AND TABS */
+@media (width > 885px){
+.paddWidth{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}   
+}
+/* LARGER SCREENS */
+@media (width > 970px){
+.paddWidth{
+    padding-left: 5rem;
+    padding-right: 5rem;
+}   
+}
+
+/* LINKS */
+a{
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+}
+a,
+button{
+    cursor: default;
+}
+/* LARGER SCREENS */
+@media (width > 768px) {
+a,
+button{
+    cursor: pointer;
+}
+}
+
+/* BUTTONS */
+.btn{
+    height: 3rem;
+    width: 7rem;
+    outline: transparent;
+    border-radius: .3rem;
+    border: 0;
+}
+/* BTN BLUE */
+.btnBlue{
+    background-color: var(--blue-clr);
+}
+/* BORDER BTN */
+.btnBorder{
+    border: 2px solid hsl(195, 100%, 50%);
+    background: transparent;
+    color: var(--blue-clr);
+}
+
+/* HEADINGS */
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6{
+    color: var(--white-clr);
+}
+
+/* TYPOGRAPHIES AND COLORS */
+.clrBlue{
+    color: var(--blue-clr);
+}
+
+
+body {
     min-height: 100dvh;
     width: 100%;
     display: grid;
     place-content: center;
+    background-color: var(--black-clr);
+    font-family: Montserrat;
+    color: var(--ash-clr);
+    overflow-x: hidden;
+}
+
+
+/* ------------------------------------------
+NAVBAR STYLES
+------------------------------------------ */
+#navbar{
+    --navHeight: 5.5rem;
+    position: fixed;
+    top: 0;
+    height: var(--navHeight);
+    width: 100%;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.6);
+    text-transform: capitalize;
+    background-color: var(--black-clr);
+}
+
+.navbarContainer{
+    height: var(--navHeight);
+    color: var(--ash-clr);
+}
+
+/*  */
+@media screen and (max-width: 850px) {
+#navList {
+    flex-direction: column;
+    gap: 1rem;
+}
+.containerNavItems{
+    background-color: var(--black-clr);
+    display: block;
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    top: var(--navHeight);
+    height: 0;
+    display: grid;
+    place-content: center;
+    color: var(--blue-clr);
+    gap: 2rem;
+    overflow: hidden;
+    transition: .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.containerNavItems.active {
+    height: 20rem;
+    -webkit-box-shadow: 0px 4px 6px -6px hsla(0, 0%, 100%, 0.27);
+    -moz-box-shadow: 0px 4px 6px -6px hsla(0, 0%, 100%, 0.27);
+    box-shadow: 0px 6px 6px -6px hsla(0, 0%, 100%, 0.27);
+}
+/* NAVLINKS */
+/* NAVLINKS - HIDE LINKS WHEN THE NAVBAR IS CLOSED*/
+.containerNavItems .navLinks,
+.containerNavItems .navBtnWrapper button {
+    visibility: hidden;
+}
+/* NAVLINKS - SHOW LINKS WHEN THE NAVBAR IS CLOSED*/
+.containerNavItems.active .navLinks,
+.containerNavItems.active .navBtnWrapper button {
+    visibility: visible;
+    animation: fadeIn 2s forwards;
+}
+
+/* FADE IN ANIMATION */
+@keyframes fadeIn{
+    from{opacity: 0; transform: translateY(-50px);}
+    to{opacity: 1; transform: translateY(0);}
+}
+
+/* TOGGLE BAR */
+.toggleBar{
+    height: 2rem;
+    width: 2rem;
+    background: transparent;
+    border: 0;
+    outline: transparent;
+    margin-bottom: .8rem;
+}   
+.navLine{
+    height: 2px;
+    width: 100%;
+    background-color: hsl(195, 100%, 50%);
+    margin-top: .7rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+/* HERO BTN */
+.navBtnWrapper {
+    gap: 1rem;
+}
+
+/* TOGGLE BAR ONCLICK */
+.toggleBar{
+    position: relative;
+}
+.navLine{
+    transition: .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.toggleBar.active .navLine1,
+.toggleBar.active .navLine2 {
+    position: absolute;
+}
+.toggleBar.active .navLine1 {
+    transform: rotate(40deg);
+}
+.toggleBar.active .navLine2 {
+    transform: rotate(140deg);
+}
+}
+
+/* DESKTOP NAVBAR */
+@media (width > 850px) {
+#navList{
+    gap: 2rem;
+}
+.containerNavItems{
+    width: 80%;
+}
+/* HIDE NAV TOGGLE IN LARGE SCREENS */
+#toggleBar{
+    display: none;
+}
+/* HERO BTN */
+.navBtnWrapper{
+    gap: 2rem;
+}
+}
+
+
+/* ------------------------------------------
+HERO STYLES
+------------------------------------------ */
+.heroSection,
+.heroSectionContainer{
+    width: 100%;
+    overflow-x: hidden;
+}
+.heroSection{
+    height: fit-content;
+    padding-top: 12rem;
+    padding-bottom: 5rem;
+}
+/* HERO TEXTS */
+.heroTexts{
+    gap: 1rem;
+    flex-direction: column;
+}
+/* HERO HEADER */
+.heroTexts h1{
+    font-size: 3rem;
+}
+/* HERO PARAGRAPH */
+.heroTexts > p {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+    width: 90%;
+}
+/* HERO BUTTONS */
+.heroBtns{
+    gap: 2rem;
+}
+.heroBtns button{
+    width: 10rem;
+    height: 3.5rem;
+}
+
+/* HERO COUNTERS */
+.heroCounters {
+    gap: 2rem;
+    line-height: 1.5rem;
+}
+
+/* HERO SLIDER */
+.heroImagesSlider{
+    width: 100%;
+}
+
+/* MEDIUM MEDIA QUERY & FEW MOBILE QUERIES */
+@media screen and (max-width: 1229px) {
+.heroSection{
+    flex-direction: column;
+    gap: 4rem;
+    padding-bottom: 4rem;
+}
+/* HERO TEXTS */
+.heroTexts {
+    gap: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+/* HERO HEADER */
+.heroTexts h1 {
+    font-size: 2.8rem;
+}
+
+/* HERO PARAGRAPH */
+.heroTexts > p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+/* HERO BUTTONS */
+.heroBtns {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.heroBtns > button {
+    width: 8rem;
+}
+
+/* HERO COUNTERS */
+.heroCounters {
+    gap: 2rem;
+    line-height: 1.5rem;
+}
+/* HERO SLIDER */
+.heroImagesSlider img{
+    width: 100%;
+}
+}
+
+
+/* MOBILE SCREENS RESPONSIVENESS */
+@media screen and (max-width: 550px){
+.heroCounters p{
+    font-size: 12px;
+}
+/* HERO HEADER */
+.heroTexts h1 {
+    font-size: 1.8rem;
+}
+
+/* HERO PARAGRAPH */
+.heroTexts>p {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+}
+
+
+
+/* ------------------------------------------
+SEAMLESS NFT SECTION STYLES
+------------------------------------------ */
+.seamlessNftSection,
+.seamlessNftContainer{
+    width: 100%;
+}
+.seamlessNftContainer{
+    padding: 1rem 0 5rem 0;
+    gap: 5rem;
+}
+/* HEADING */
+.seamlessNftSection h1{
+    text-align: center;
+    font-size: 3.5rem;
+    padding-bottom: 4rem;
+    padding-top: 2rem;
+}
+/* --- */
+.seamlessNftText{
+    flex-direction: column;
+    gap: 1rem;
+}
+.seamlessNftText p{
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+/* SEAMLESS NFT BUTTONS */
+.seamlessNftButtons{
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.seamlessNftButtons button{
+    width: 9rem;
+    height: 3.5rem;
+}
+
+/* MOBILE MEDIA QUERY */
+@media screen and (max-width: 1229px) {
+.c-reverse{
+    flex-direction: column-reverse;
+}
+.c-column{
+    flex-direction: column;
+}
+.seamlessNftContainer{
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+    padding: 2rem 0 3rem 0;
+}
+.seamlessNftText{
+    align-items: center;
+}
+/* --- */
+.seamlessNftSection h1 {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
+}
+/* SEAMLESS NFT BUTTON */
+.seamlessNftButtons{
+    align-items: center;
+    justify-content: center;
+}
+/* SEAMLESS NFT IMAGE */
+.seamlessNftImage img{
+    width: 100%;
+}
+}
+
+
+
+/* ---------------------- 
+EXPLORE SECTION
+---------------------- */
+.ethTxt img{
+    width: 13px;
+}
+.currentBid span{
+    gap: .4rem;
+}
+.currentBid{
+    padding-right: 3rem;
+}
+.currentBid,
+.auctionClosing{
+    gap: .5rem;
+    flex-direction: column;
+}
+
+.auctionClosing{
+    border-left: 1px solid hsl(0, 0%, 100%);
+    padding-left: 2rem;
+}
+.auctionClosingTime{
+    gap: 3rem;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 503px){
+.exploreText p,
+.exploreText h3{
+    font-size: smaller;
+}
+.ethTxt img{
+    width: 10px;
+}
+.currentBid {
+    padding-right: .5rem;
+}
+.auctionClosing{
+    padding-left: .5rem;
+}
+}
+@media screen and (max-width: 350px){
+.EthBid{
+    flex-direction: column;
+    align-items: center;
+}
+.auctionClosing {
+    border-left: 0;
+    border-top: 1px solid hsl(0, 0%, 100%);
+    padding-left: 2rem;
+}
+.currentBid {
+    padding-right: 0;
+}
+.auctionClosing {
+    padding-left: 0;
+}
+.currentBid{
+    padding-bottom: .5rem;
+}
+.auctionClosing{
+    padding-top: .5rem;
+}
+}
+
+
+
+/* ------------------------------------------
+DISCOVER SECTION STYLES
+------------------------------------------ */
+.discoverContainer{
+    flex-direction: column;
+    /* align-items: center; */
+}
+.discoverContainer {
+    text-align: left;
+}
+.discoverCardContainers{
+    margin-inline: auto;
+    padding-top: 2rem;
+    gap: 2rem;
+}
+
+/* DISCOVER CARD */
+.discoverCard{
+    --cardWidth: 383px;
+    --cardHeight: 331.85px;
+    flex-direction: column;
+    gap: 1rem;
+    width: var(--cardWidth);
+    height: var(--cardHeight);
+}
+
+.txtDiscoverCard{
+    flex-direction: column;
+    gap: 1.3rem;
+}
+.txtDiscoverCard span{
+    justify-content: space-between;
+}
+
+.discoverCard img{
+    width: var(--cardWidth);
+    height: var(--cardHeight);
+}
+
+.discoverBid{
+    flex-direction: column;
+    gap: 1rem;
+}
+.ethTxt svg{
+    color: var(--blue-clr);
+}
+
+
+/* MOBILE MEDIA QUERY */
+@media screen and (max-width: 1229px) {
+.discoverCardContainers{
+    width: 395px;
+    height: 520px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1rem;
+}
+}
+
+
+
+
+
+/* ------------------------------------------
+TOP CREATORS SECTION STYLES
+------------------------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------------------
+FOOTER STYLES
+------------------------------------------ */
+.footerSection{
+    width: 100%;
+    height: fit-content;
+    padding-block: 2rem;
+    border-block: 1px solid #fff;
+}
+.footerSecContainer{
+    gap: 5rem;
+    justify-content: space-between;
+}
+
+/* FOOTER ROW - 1 */
+.footerRow1{
+    flex-direction: column;
+}
+.socialIcons{
+    gap: 1rem;
+    font-size: 1.8rem;
+}
+
+/* FOOTER LIST ITEMS */
+.footerLists{
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+.listRow{
+    gap: 1.5rem;
+    flex-direction: column;
+}
+.listRow ul{
+    line-height: 2.7rem;
+}
+
+/* MEDIA QUERY FOR MEDIUM SCREENS */
+@media screen and (max-width: 619px){
+.footerSecContainer {
+    flex-direction: column;
+    gap: 2rem;
+}
+/* SOCIALS */
+.footerRow1 {
+    gap: 2rem;
+}
 }
