@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 
 /* ------------------------------------------
@@ -124,7 +124,7 @@ body {
     display: grid;
     place-content: center;
     background-color: var(--black-clr);
-    font-family: Montserrat;
+    font-family: Lato;
     color: var(--ash-clr);
     overflow-x: hidden;
 }
@@ -277,7 +277,7 @@ HERO STYLES
 }
 /* HERO HEADER */
 .heroTexts h1{
-    font-size: 3rem;
+    font-size: 3.5rem;
 }
 /* HERO PARAGRAPH */
 .heroTexts > p {
@@ -324,7 +324,7 @@ HERO STYLES
 
 /* HERO HEADER */
 .heroTexts h1 {
-    font-size: 2.8rem;
+    font-size: 3.3rem;
 }
 
 /* HERO PARAGRAPH */
@@ -362,7 +362,7 @@ HERO STYLES
 }
 /* HERO HEADER */
 .heroTexts h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 /* HERO PARAGRAPH */
@@ -563,6 +563,68 @@ DISCOVER SECTION STYLES
 
 
 /* ------------------------------------------
+TOP CREATORS AVATAR NFT SECTION STYLES
+------------------------------------------ */
+.topCreatorContainer{
+    padding-block: 1rem;
+    gap: 5rem;
+}
+
+table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+table tr th{
+    border-bottom: 1px solid #fff;
+    font-weight: 400;
+}
+table tr td,
+table tr th{
+    padding-block: 1rem;
+}
+
+/*--  ---*/
+.creatorImage{
+    gap: 1rem;
+}
+
+/* MEDIA QUERY FOR TOP CREATORS (MEDIUM AND MOBILE) */
+@media screen and (max-width: 1100px){
+.topCreatorContainer{
+    flex-direction: column;
+    gap: 0;
+}
+td{
+    padding-left: 1rem;
+}
+tr#tableChat-2{
+    visibility: hidden;
+}
+table tr#tableChat-2 th {
+    border-bottom: none;
+}
+table tr#tableChat-2 th{
+    padding-block: 0;
+}
+table tr th{
+    padding-right: .5rem;
+}
+/*--  ---*/
+.creatorImage {
+    gap: .5rem;
+}
+}
+
+/* MEDIA QUERY FOR TOP CREATORS (MOBILE) */
+@media screen and (max-width: 438px) {
+.topCreatorContainer{
+    font-size: smaller;
+}
+}
+
+
+/* ------------------------------------------
 TRENDING AVATAR NFT SECTION STYLES
 ------------------------------------------ */
 .trendingNftSection{
@@ -634,12 +696,13 @@ FOOTER STYLES
 .footerSection{
     width: 100%;
     height: fit-content;
-    padding-block: 2rem;
-    border-block: 1px solid #fff;
+    padding-block: 5rem 1rem;
 }
 .footerSecContainer{
     gap: 5rem;
     justify-content: space-between;
+    border-block: 1px solid #fff;
+    padding-block: 3rem;
 }
 
 /* FOOTER ROW - 1 */
@@ -674,4 +737,11 @@ FOOTER STYLES
 .footerRow1 {
     gap: 2rem;
 }
+}
+
+/* FOOTER FOOTER */
+.footerFooter{
+    border-top: 1px solid #fff;
+    padding-block: 1rem;
+    text-align: center;
 }
