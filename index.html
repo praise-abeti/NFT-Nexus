@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="hsl(225, 57%, 5%)">
     <!-- -------------- STYLES -------------- -->
     <link rel="stylesheet" href="style.css">
     <!-- -------------- FONT AWESOME -------------- -->
@@ -13,6 +14,15 @@
 </head>
 <body>
     
+    <!-- ---------------------------------------------------- 
+    PRELOADER
+    ------------------------------------------------------ -->
+    <!-- <div class="preloader">
+        <img src="images/Ai Preloader.gif" alt="preloader">
+    </div> -->
+
+
+
     <!-- ---------------------------------------------------- 
     NAVBAR SECTION
     ------------------------------------------------------ -->
@@ -97,19 +107,19 @@
                 <div class="heroCounters flex aic">
                     <!--  -->
                     <span>
-                        <h4 class="counterEl">35k+</h4>
+                        <h4 class="counterEl">0</h4>
                         <!--  -->
                         <p>Trading Card</p>
                     </span>
                     <!--  -->
                     <span>
-                        <h4 class="counterEl">35k+</h4>
+                        <h4 class="counterEl">0</h4>
                         <!--  -->
                         <p>Trading Card</p>
                     </span>
                     <!--  -->
                     <span>
-                        <h4 class="counterEl">35k+</h4>
+                        <h4 class="counterEl">0</h4>
                         <!--  -->
                         <p>Trading Card</p>
                     </span>
@@ -195,7 +205,7 @@
 
 
     <!-- ---------------------------------------------------- 
-    SIMILAR CODE SECTION - 3
+    SIMILAR CODE SECTION - 3 [MOST POPULAR NFT]
     ------------------------------------------------------ -->
     <main class="seamlessNftSection paddWidth">
         <!-- TITLES -->
@@ -238,21 +248,27 @@
                         <!--  -->
                         <div class="auctionClosingTime flex">
                             <span>
-                              <h3>5</h3>
+                              <h3 class="NFTClosingDate"></h3>
                                 <!-- DAYS -->
                                 <p>Days</p>
                             </span>
                             <!--  -->
                             <span>
-                              <h3>10</h3>
+                              <h3 class="NFTClosingDate"></h3>
                                 <!-- DAYS -->
                                 <p>Hours</p>
                             </span>
                             <!--  -->
                             <span>
-                              <h3>35</h3>
+                              <h3 class="NFTClosingDate"></h3>
                                 <!-- DAYS -->
                                 <p>Minutes</p>
+                            </span>
+                            <!--  -->
+                            <span>
+                              <h3 class="NFTClosingDate"></h3>
+                                <!-- DAYS -->
+                                <p>Seconds</p>
                             </span>
                             <!--  -->
                         </div>
@@ -713,8 +729,16 @@
         </div>
 
         <aside id="footerFooter" class="footerFooter">
-            <p>NFT Nexus 2023 ©</p>
+            <p>NFT Nexus <span id="copyRightYear"></span> &copy;</p>
         </aside>
     </footer>
+
+
+    <!-- ---------------------------------------------------- 
+    JUMP-TO-TOP SECTION
+    ------------------------------------------------------ -->
+    <button id="scrollToTopBtn">
+        <div class="arrowTop">&UpArrow;</div>
+    </button>
 </body>
 </html>

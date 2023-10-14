@@ -22,6 +22,11 @@ ROOT COLOR STYLES
     --ash-clr: hsla(0, 0%, 100%, 0.6);
 }
 
+
+html{
+    scroll-behavior: smooth;
+}
+
 /* ------------------------------------------
 UTILITY STYLES
 ------------------------------------------ */
@@ -102,6 +107,13 @@ button{
     color: var(--blue-clr);
 }
 
+/* ****** ACTIVE BUTTONS ****** */
+#scrollToTopBtn:active,
+.btn:active {
+    outline: 3px solid hsl(195, 100%, 50%);
+    outline-offset: 4px;
+}
+
 /* HEADINGS */
 h1, 
 h2,
@@ -128,6 +140,32 @@ body {
     color: var(--ash-clr);
     overflow-x: hidden;
 }
+
+
+/* ------------------------------------------
+PRELOADER STYLES
+------------------------------------------ */
+.preloader{
+    position: fixed;
+    inset: 0;
+    background-color: var(--black-clr);
+    z-index: 9999999999;
+    transition: .3s ease cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.preloader img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.remove-preloader{
+    z-index: -999999999999;
+    visibility: hidden;
+}
+
+
+
+
+
 
 
 /* ------------------------------------------
@@ -475,7 +513,7 @@ EXPLORE SECTION
 }
 
 /* MEDIA QUERY */
-@media screen and (max-width: 503px){
+@media screen and (max-width: 600px){
 .exploreText p,
 .exploreText h3{
     font-size: smaller;
@@ -741,7 +779,30 @@ FOOTER STYLES
 
 /* FOOTER FOOTER */
 .footerFooter{
-    border-top: 1px solid #fff;
+    border-top: 1px solid hsl(0, 0%, 100%);
     padding-block: 1rem;
     text-align: center;
+}
+
+/* SCROLL TOP STYLES */
+#scrollToTopBtn{
+    position: fixed;
+    background-color: var(--blue-clr);
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 2.2rem;
+    color: var(--white-clr);
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    border: 0;
+    outline: transparent;
+    display: none;
+    border-radius: .5rem;
+    animation: scale 2s linear infinite;
+}
+
+@keyframes scale {
+    from{scale: .5;}
+    to{scale: 1.1;}
 }
