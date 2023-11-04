@@ -38,6 +38,8 @@ scrollToTopBtn.onclick = () => {
 };
 
 
+
+
 // *************** HERO COUNTER ***************
 function StartCounter(){
 let counterValues = [50, 35, 80];
@@ -78,6 +80,9 @@ setInterval(() => {
 }, timerSpeed)
 }
 StartCounter();
+
+
+
 
 
 // **************** FUTURE DATE COUNT ****************

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 
 /* ------------------------------------------
@@ -136,7 +137,8 @@ body {
     display: grid;
     place-content: center;
     background-color: var(--black-clr);
-    font-family: Lato;
+    /* font-family: Lato; */
+    font-family: Montserrat;
     color: var(--ash-clr);
     overflow-x: hidden;
 }
@@ -180,6 +182,7 @@ NAVBAR STYLES
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.6);
     text-transform: capitalize;
     background-color: var(--black-clr);
+    z-index: 9999999999999;
 }
 
 .navbarContainer{
